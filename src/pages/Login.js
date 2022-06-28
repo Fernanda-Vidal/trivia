@@ -1,10 +1,15 @@
 import React from 'react';
+import getApiToken from '../services/GetApi';
 
 class Login extends React.Component {
     state = {
       userName: '',
       userEmail: '',
       isDisable: true,
+    }
+
+    componentDidMount() {
+      getApiToken();
     }
 
     handleChangeLogin = ({ target: { name, value } }) => {
