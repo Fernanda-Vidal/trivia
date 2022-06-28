@@ -14,6 +14,24 @@ class Login extends React.Component {
               placeholder="Digite seu nome"
             />
           </label>
+
+          <label htmlFor="userEmail">
+            Digite seu Email:
+            <input
+              type="email"
+              name="userEmail"
+              data-testid="input-gravatar-email"
+              placeholder="Digite seu Email"
+            />
+          </label>
+
+          <button
+            type="button"
+            data-testid="btn-play"
+          >
+            Play
+          </button>
+
         </form>
       </div>
     );
