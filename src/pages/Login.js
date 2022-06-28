@@ -28,6 +28,7 @@ class Login extends React.Component {
       const { userName, userEmail, isDisable } = this.state;
       return (
         <div>
+          <h1 data-testid="settings-title">Trivia</h1>
           <form>
             <label htmlFor="userName">
               Digite seu Nome:
@@ -60,6 +61,7 @@ class Login extends React.Component {
             >
               Play
             </button>
+            <button data-testid="btn-settings" type="button">Configurações</button>
 
           </form>
         </div>
