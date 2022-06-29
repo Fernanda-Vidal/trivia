@@ -30,11 +30,12 @@ class Login extends React.Component {
 
     buttonHandleClick = () => {
       const { userName, userEmail } = this.state;
-      const { addUserName, addUserEmail, getTokenProps } = this.props;
+      const { addUserName, addUserEmail, getTokenProps, history } = this.props;
 
       addUserName(userName);
       addUserEmail(userEmail);
       getTokenProps();
+      history.push('/trivia');
     }
 
     render() {
@@ -90,9 +91,10 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 Login.propTypes = {
-  addUserName: PropTypes.string.isRequired,
-  addUserEmail: PropTypes.string.isRequired,
-  getTokenProps: PropTypes.string.isRequired,
+  addUserName: PropTypes.func.isRequired,
+  addUserEmail: PropTypes.func.isRequired,
+  getTokenProps: PropTypes.func.isRequired,
+  history: PropTypes.string.isRequired,
 };
 
 export default connect(null, mapDispatchToProps)(Login);
