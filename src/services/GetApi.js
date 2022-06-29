@@ -3,7 +3,7 @@ const getApiToken = async () => {
   const response = await fetch(`${ENDPOINT}`);
   const json = await response.json();
   localStorage.setItem('token', json.token);
-  console.log(json.token);
+  // console.log(json.token);
 
   return json;
 };
