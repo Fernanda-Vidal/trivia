@@ -4,7 +4,7 @@ const getApiToken = async () => {
   const json = await response.json();
   console.log(json);
 
-  return response.ok ? Promise.resolve(json) : Promise.reject(json);
+  return json;
 };
 
 export default getApiToken;
