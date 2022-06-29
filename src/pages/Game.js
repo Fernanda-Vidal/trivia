@@ -10,7 +10,6 @@ class Game extends React.Component {
     const token = localStorage.getItem('token');
     await getQuestions(token).then((resp) => {
       const { dispatch } = this.props;
-      // console.log(resp);
       dispatch(addQuestions(resp));
     });
     this.shuffleAnswers();
@@ -18,8 +17,15 @@ class Game extends React.Component {
 
    shuffleAnswers = () => {
      const { questionResults } = this.props;
-     const novoArray = questionResults.map((objeto) => console.log(objeto.category));
-     console.log(questionResults.map((objeto) => objeto.category));
+     // const novoArray = questionResults.map((objeto) => console.log(objeto.category));
+     const novoArray = questionResults.map((object) => ([
+       object.category,
+       object.question,
+       object.correct_answer,
+       object.incorrect_answers,
+     ]));
+     console.log(novoArray);
+
      return novoArray;
    }
 
@@ -29,7 +35,7 @@ class Game extends React.Component {
      return (
        <div>
          <Header />
-         <p>XABLAU</p>
+         {this.shuffleAnswers}
        </div>
      );
    }
