@@ -7,8 +7,6 @@ class Header extends React.Component {
   getImgGravatar = () => {
     const { userEmail } = this.props;
     const email = md5(userEmail).toString();
-    console.log(email);
-    console.log(userEmail);
     const url = `https://www.gravatar.com/avatar/${email}`;
     return url;
   }
