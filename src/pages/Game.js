@@ -6,9 +6,9 @@ import { addQuestions } from '../redux/actions';
 import { getQuestions } from '../services/GetApi';
 
 class Game extends React.Component {
-  componentDidMount() {
+  async componentDidMount() {
     const token = localStorage.getItem('token');
-    getQuestions(token).then((resp) => {
+    await getQuestions(token).then((resp) => {
       const { dispatch } = this.props;
       // console.log(resp);
       dispatch(addQuestions(resp));
