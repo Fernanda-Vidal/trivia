@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as listActions from '../redux/actions';
 import { getToken } from '../redux/actions';
@@ -87,5 +88,11 @@ const mapDispatchToProps = (dispatch) => ({
   addUserEmail: (email) => dispatch(listActions.addUserEmail(email)),
   getTokenProps: () => dispatch(getToken()),
 });
+
+Login.propTypes = {
+  addUserName: PropTypes.string.isRequired,
+  addUserEmail: PropTypes.string.isRequired,
+  getTokenProps: PropTypes.string.isRequired,
+};
 
 export default connect(null, mapDispatchToProps)(Login);
