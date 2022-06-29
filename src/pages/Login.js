@@ -1,4 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import * as listActions from '../redux/actions';
+import { getToken } from '../redux/actions';
 
 class Login extends React.Component {
     state = {
@@ -22,6 +26,16 @@ class Login extends React.Component {
           isDisable: false,
         });
       }
+    }
+
+    buttonHandleClick = () => {
+      const { userName, userEmail } = this.state;
+      const { addUserName, addUserEmail, getTokenProps, history } = this.props;
+
+      addUserName(userName);
+      addUserEmail(userEmail);
+      getTokenProps();
+      history.push('/trivia');
     }
 
     render() {
@@ -58,6 +72,7 @@ class Login extends React.Component {
               type="button"
               data-testid="btn-play"
               disabled={ isDisable }
+              onClick={ this.buttonHandleClick }
             >
               Play
             </button>
@@ -69,4 +84,17 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+const mapDispatchToProps = (dispatch) => ({
+  addUserName: (user) => dispatch(listActions.addUserName(user)),
+  addUserEmail: (email) => dispatch(listActions.addUserEmail(email)),
+  getTokenProps: () => dispatch(getToken()),
+});
+
+Login.propTypes = {
+  addUserName: PropTypes.func.isRequired,
+  addUserEmail: PropTypes.func.isRequired,
+  getTokenProps: PropTypes.func.isRequired,
+  history: PropTypes.string.isRequired,
+};
+
+export default connect(null, mapDispatchToProps)(Login);
