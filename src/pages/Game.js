@@ -24,9 +24,11 @@ class Game extends React.Component {
        object.correct_answer,
        object.incorrect_answers,
      ]));
-     console.log(novoArray);
 
-     return novoArray;
+     for (let i = novoArray.length - 1; i > 0; i -= 1) {
+       const j = Math.floor(Math.random() * (i + 1));
+       [novoArray[i], novoArray[j]] = [novoArray[j], novoArray[i]];
+     }
    }
 
    render() {
