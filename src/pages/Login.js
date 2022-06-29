@@ -35,7 +35,7 @@ class Login extends React.Component {
       addUserName(userName);
       addUserEmail(userEmail);
       getTokenProps();
-      history.push('/trivia');
+      history.push('/game');
     }
 
     render() {
