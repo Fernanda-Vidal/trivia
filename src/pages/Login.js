@@ -28,13 +28,13 @@ class Login extends React.Component {
       }
     }
 
-    buttonHandleClick = () => {
+    buttonHandleClick = async () => {
       const { userName, userEmail } = this.state;
       const { addUserName, addUserEmail, getTokenProps, history } = this.props;
 
       addUserName(userName);
       addUserEmail(userEmail);
-      getTokenProps();
+      await getTokenProps();
       history.push('/game');
     }
 

@@ -27,7 +27,7 @@ export const addQuestions = (question) => ({
 
 export function getToken() {
   return async (dispatch) => {
-    getApiToken().then((resp) => {
+    await getApiToken().then((resp) => {
       dispatch(addUserToken(resp));
     });
   };

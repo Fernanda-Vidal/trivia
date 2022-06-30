@@ -15,9 +15,15 @@ class Game extends React.Component {
   async componentDidMount() {
     const token = localStorage.getItem('token');
     await getQuestions(token).then((resp) => {
-      const { dispatch } = this.props;
+      const { dispatch, history } = this.props;
       dispatch(addQuestions(resp));
+      console.log(resp);
+      if (resp.response_code !== 0) {
+        localStorage.removeItem('token');
+        history.push('/');
+      }
     });
+    // const tokenValid = 0;
     this.shuffleAnswers();
   }
 
@@ -101,7 +107,10 @@ const mapStateToProps = (state) => ({
 
 Game.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  questionResults: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+  questionResults: PropTypes.arrayOf(PropTypes.any).isRequired,
 };
 
 export default connect(mapStateToProps)(Game);
