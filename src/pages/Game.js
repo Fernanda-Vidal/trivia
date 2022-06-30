@@ -27,7 +27,7 @@ class Game extends React.Component {
      const novoArray = questionResults.map((object) => ({
        category: object.category,
        question: object.question,
-       answer: [object.correct_answer, ...object.incorrect_answers],
+       answers: [object.correct_answer, ...object.incorrect_answers],
      }));
      /* for (let i = novoArray.length - 1; i > 0; i -= 1) {
        const j = Math.floor(Math.random() * (i + 1));
@@ -40,7 +40,7 @@ class Game extends React.Component {
 
      this.setState({
        novoArray1: [...novoArray],
-       correctAnswer: novoArray.map((answer) => answer.answer[0]),
+       correctAnswer: novoArray.map((answer) => answer.answers[0]),
      });
      const { novoArray1, correctAnswer } = this.state;
      console.log(novoArray1);
@@ -49,12 +49,65 @@ class Game extends React.Component {
      return novoArray;
    }
 
+   //  shuffle = () => {
+   //    const { novoArray1 } = this.state;
+   //    const correct = novoArray1.map((answer) => answer.answers[0]);
+   //    console.log(correct);
+   //  }
+
    render() {
      const { novoArray1 /* , answer */ } = this.state;
+     const number = 5;
+     const cardQuestion = novoArray1.map((question) => (
+       <div key={ question.category } className="container">
+         <p
+           key={ question.category }
+           className="container-text"
+           data-testid="question-category"
+         >
+           Categoria:
+           { question.category }
+         </p>
+         <p
+           key={ question.question }
+           className="container-text"
+           data-testid="question-text"
+         >
+           Pergunta:
+           { question.question }
+         </p>
+         <div data-testid="answer-options">
+           {question.answers.map((answer, i) => (
+             (i === 0)
+               ? (
+                 <button
+                   type="button"
+                   key={ i + 1 }
+                   className="container-text"
+                   data-testid="correct-answer"
+                 >
+                   { answer }
+                 </button>
+               )
+               : (
+                 <button
+                   type="button"
+                   key={ i + 1 }
+                   className="container-text"
+                   data-testid={ `wrong-answer-${i}` }
+                 >
+                   { answer }
+                 </button>
+               )
+           ))}
+         </div>
+       </div>
+     ));
      return (
        <div>
          <Header />
-         { novoArray1.map((x) => (
+         {cardQuestion[number % cardQuestion.length]}
+         {/* { novoArray1.map((x) => (
            <div key={ x.category } className="container">
              <p key={ x.category } className="container-text">
                {`Categoria: ${x.category}` }
@@ -69,7 +122,7 @@ class Game extends React.Component {
                  </p>))}
              </div>
            </div>
-         )) }
+         )) } */}
        </div>
      );
    }
