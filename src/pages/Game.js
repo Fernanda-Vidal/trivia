@@ -9,7 +9,7 @@ import '../css/Game.css';
 class Game extends React.Component {
   state = {
     novoArray1: [],
-    correctAnswer: '',
+    // correctAnswer: '',
   }
 
   async componentDidMount() {
@@ -40,24 +40,15 @@ class Game extends React.Component {
 
      this.setState({
        novoArray1: [...novoArray],
-       correctAnswer: novoArray.map((answer) => answer.answers[0]),
+       //  correctAnswer: novoArray.map((answer) => answer.answers[0]),
      });
-     const { novoArray1, correctAnswer } = this.state;
-     console.log(novoArray1);
-     console.log(correctAnswer);
-
      return novoArray;
    }
-
-   //  shuffle = () => {
-   //    const { novoArray1 } = this.state;
-   //    const correct = novoArray1.map((answer) => answer.answers[0]);
-   //    console.log(correct);
-   //  }
 
    render() {
      const { novoArray1 /* , answer */ } = this.state;
      const number = 5;
+     // const numberAnswer = 4;
      const cardQuestion = novoArray1.map((question) => (
        <div key={ question.category } className="container">
          <p
@@ -107,22 +98,6 @@ class Game extends React.Component {
        <div>
          <Header />
          {cardQuestion[number % cardQuestion.length]}
-         {/* { novoArray1.map((x) => (
-           <div key={ x.category } className="container">
-             <p key={ x.category } className="container-text">
-               {`Categoria: ${x.category}` }
-             </p>
-             <p key={ x.question } className="container-text">
-               { `Pergunta: ${x.question}` }
-             </p>
-             <div>
-               {x.answer.map((y) => (
-                 <p key={ y } className="container-text">
-                   { y }
-                 </p>))}
-             </div>
-           </div>
-         )) } */}
        </div>
      );
    }
