@@ -10,6 +10,8 @@ class Game extends React.Component {
   state = {
     novoArray1: [],
     correctAnswer: '',
+    index: 0,
+    isAnswered: '',
   }
 
   async componentDidMount() {
@@ -43,9 +45,24 @@ class Game extends React.Component {
      return novoArray;
    }
 
+   handleClickNext = () => {
+     const num = 4;
+     this.setState((previous) => {
+       if (previous.index === num) {
+         this.setState({ index: 0 });
+       } else {
+         this.setState({ index: previous.index + 1 });
+       }
+     });
+   }
+
+   handleClickAnswer = ({ target }) => {
+     console.log(target);
+     this.setState({ isAnswered: true });
+   }
+
    render() {
-     const { novoArray1, correctAnswer } = this.state;
-     const number = 5;
+     const { novoArray1, correctAnswer, index, isAnswered } = this.state;
      const cardQuestion = novoArray1.map((question) => (
        <div key={ question.category } className="container">
          <p
@@ -73,6 +90,7 @@ class Game extends React.Component {
                    key={ i + 1 }
                    className="container-text"
                    data-testid="correct-answer"
+                   onClick={ this.handleClickAnswer }
                  >
                    { answer }
                  </button>
@@ -83,6 +101,7 @@ class Game extends React.Component {
                    key={ i + 1 }
                    className="container-text"
                    data-testid={ `wrong-answer-${i}` }
+                   onClick={ this.handleClickAnswer }
                  >
                    { answer }
                  </button>
@@ -95,7 +114,17 @@ class Game extends React.Component {
      return (
        <div>
          <Header />
-         {cardQuestion[number % cardQuestion.length]}
+         {cardQuestion[index]}
+         {(isAnswered)
+         && (
+           <button
+             type="button"
+             data-testid="btn-next"
+             onClick={ this.handleClickNext }
+           >
+             Next
+           </button>
+         )}
        </div>
      );
    }
