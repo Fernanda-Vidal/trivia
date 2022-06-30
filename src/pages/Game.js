@@ -9,6 +9,7 @@ import '../css/Game.css';
 class Game extends React.Component {
   state = {
     novoArray1: [],
+    correctAnswer: '',
   }
 
   async componentDidMount() {
@@ -22,7 +23,7 @@ class Game extends React.Component {
 
    shuffleAnswers = () => {
      const { questionResults } = this.props;
-     // const novoArray = questionResults.map((objeto) => console.log(objeto.category));
+     //  questionResults.map((objeto) => this.setState({ correct: objeto.correct_answer}));
      const novoArray = questionResults.map((object) => ({
        category: object.category,
        question: object.question,
@@ -39,8 +40,11 @@ class Game extends React.Component {
 
      this.setState({
        novoArray1: [...novoArray],
-       // answer: [novoArray.answer.correct],
+       correctAnswer: novoArray.map((answer) => answer.answer[0]),
      });
+     const { novoArray1, correctAnswer } = this.state;
+     console.log(novoArray1);
+     console.log(correctAnswer);
 
      return novoArray;
    }
