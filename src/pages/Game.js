@@ -53,8 +53,12 @@ class Game extends React.Component {
          <Header />
          { novoArray1.map((x) => (
            <div key={ x.category } className="container">
-             <p key={ x.category } className="container-text">{ x.category }</p>
-             <p key={ x.question } className="container-text">{ x.question }</p>
+             <p key={ x.category } className="container-text">
+               {`Categoria: ${x.category}` }
+             </p>
+             <p key={ x.question } className="container-text">
+               { `Pergunta: ${x.question}` }
+             </p>
            </div>
          )) }
        </div>
