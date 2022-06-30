@@ -43,6 +43,22 @@ class Game extends React.Component {
      return novoArray;
    }
 
+   checkAnswers = () => {
+     const { correctAnswer } = this.state;
+     // console.log(target.className);
+     const allButtons = document.querySelectorAll('.button-answers');
+     // const classCorrect = document.querySelector('.correct-answer');
+     // const classIncorrect = document.querySelectorAll('.incorrect-answer');
+     allButtons.forEach((button) => {
+       if (correctAnswer.includes(button.textContent)) {
+         button.className.add('correct-answer');
+         // classIncorrect.style = 'border: 3px solid red';
+       } else {
+         button.className.add('incorrect-answer');
+       }
+     });
+   }
+
    render() {
      const { novoArray1, correctAnswer } = this.state;
      const number = 5;
@@ -71,8 +87,9 @@ class Game extends React.Component {
                  <button
                    type="button"
                    key={ i + 1 }
-                   className="container-text"
+                   className="button-answers"
                    data-testid="correct-answer"
+                   onClick={ this.checkAnswers }
                  >
                    { answer }
                  </button>
@@ -81,8 +98,9 @@ class Game extends React.Component {
                  <button
                    type="button"
                    key={ i + 1 }
-                   className="container-text"
+                   className="button-answers"
                    data-testid={ `wrong-answer-${i}` }
+                   onClick={ this.checkAnswers }
                  >
                    { answer }
                  </button>
