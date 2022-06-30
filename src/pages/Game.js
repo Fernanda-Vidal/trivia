@@ -9,7 +9,6 @@ import '../css/Game.css';
 class Game extends React.Component {
   state = {
     novoArray1: [],
-    // answer: [],
   }
 
   async componentDidMount() {
@@ -27,7 +26,7 @@ class Game extends React.Component {
      const novoArray = questionResults.map((object) => ({
        category: object.category,
        question: object.question,
-       answer: { correct: object.correct_answer, wrong: [...object.incorrect_answers] },
+       answer: [object.correct_answer, ...object.incorrect_answers],
      }));
      /* for (let i = novoArray.length - 1; i > 0; i -= 1) {
        const j = Math.floor(Math.random() * (i + 1));
@@ -59,6 +58,12 @@ class Game extends React.Component {
              <p key={ x.question } className="container-text">
                { `Pergunta: ${x.question}` }
              </p>
+             <div>
+               {x.answer.map((y) => (
+                 <p key={ y } className="container-text">
+                   { y }
+                 </p>))}
+             </div>
            </div>
          )) }
        </div>
