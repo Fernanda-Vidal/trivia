@@ -9,7 +9,7 @@ import '../css/Game.css';
 class Game extends React.Component {
   state = {
     novoArray1: [],
-    // correctAnswer: '',
+    correctAnswer: '',
   }
 
   async componentDidMount() {
@@ -29,26 +29,17 @@ class Game extends React.Component {
        question: object.question,
        answers: [object.correct_answer, ...object.incorrect_answers],
      }));
-     /* for (let i = novoArray.length - 1; i > 0; i -= 1) {
-       const j = Math.floor(Math.random() * (i + 1));
-       [novoArray[i], novoArray[j]] = [novoArray[j], novoArray[i]];
-      } */
-
-     /* const answerArray = questionResults.map((object) => ([
-       object.correct_answer, ...object.incorrect_answers,
-     ])); */
 
      this.setState({
        novoArray1: [...novoArray],
-       //  correctAnswer: novoArray.map((answer) => answer.answers[0]),
+       correctAnswer: novoArray.map((answer) => answer.answers[0]),
      });
      return novoArray;
    }
 
    render() {
-     const { novoArray1 /* , answer */ } = this.state;
+     const { novoArray1, correctAnswer } = this.state;
      const number = 5;
-     // const numberAnswer = 4;
      const cardQuestion = novoArray1.map((question) => (
        <div key={ question.category } className="container">
          <p
@@ -69,7 +60,7 @@ class Game extends React.Component {
          </p>
          <div data-testid="answer-options">
            {question.answers.map((answer, i) => (
-             (i === 0)
+             (correctAnswer.includes(answer))
                ? (
                  <button
                    type="button"
@@ -90,7 +81,8 @@ class Game extends React.Component {
                    { answer }
                  </button>
                )
-           ))}
+             //  Pesquisa: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+           )).sort(() => [Math.random() - '0.5'])}
          </div>
        </div>
      ));
