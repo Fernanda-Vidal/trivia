@@ -1,0 +1,10 @@
+.container-text, .container {
+  background-color: whitesmoke;
+  border: 2px solid black;
+}
+
+.container {
+  background-color: gainsboro;
+  border: 2px solid black;
+  margin-bottom: 20px;
+}
