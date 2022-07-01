@@ -79,7 +79,7 @@ class Game extends React.Component {
             key={ question.category }
             className="container-text"
             data-testid="question-category"
-          >
+           >
            Categoria:
             { question.category }
           </p>
@@ -87,7 +87,7 @@ class Game extends React.Component {
             key={ question.question }
             className="container-text"
             data-testid="question-text"
-          >
+           >
            Pergunta:
             { question.question }
           </p>
