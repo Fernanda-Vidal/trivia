@@ -27,7 +27,6 @@ class Game extends React.Component {
         history.push('/');
       }
     });
-    // const tokenValid = 0;
 
     this.shuffleAnswers();
   /*   const number = 1000;
