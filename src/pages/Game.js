@@ -54,7 +54,8 @@ class Game extends React.Component {
        } else {
          this.setState({ index: previous.index + 1 });
        }
-      }}
+     });
+    }
 
     handleClickAnswer = ({ target }) => {
      console.log(target);
