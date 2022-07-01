@@ -8,8 +8,10 @@ import '../css/Game.css';
 
 class Game extends React.Component {
   state = {
+    countdown: 30,
     novoArray1: [],
     correctAnswer: '',
+    isDisable: false,
   }
 
   async componentDidMount() {
@@ -24,7 +26,19 @@ class Game extends React.Component {
       }
     });
     // const tokenValid = 0;
+
     this.shuffleAnswers();
+  /*   const number = 1000;
+    const timeOut = setTimeout(() => {
+      this.setState((prev) => ({
+        countdown: prev.countdown - 1,
+      }));
+    }, number);
+    return timeOut; */
+  }
+
+  componentDidUpdate() {
+    this.countdown();
   }
 
    shuffleAnswers = () => {
@@ -55,8 +69,24 @@ class Game extends React.Component {
      });
    }
 
+   countdown() {
+     const { countdown } = this.state;
+     const number = 1000;
+     const timeOut = setTimeout(() => {
+       if (countdown === 0) {
+         this.setState({ isDisable: true, countdown: 0 });
+       } else {
+         this.setState((prev) => ({
+           isDisable: false,
+           countdown: prev.countdown - 1,
+         }));
+       }
+     }, number);
+     return timeOut;
+   }
+
    render() {
-     const { novoArray1, correctAnswer } = this.state;
+     const { novoArray1, correctAnswer, isDisable, countdown } = this.state;
      const number = 5;
      const cardQuestion = novoArray1.map((question) => (
        <div key={ question.category } className="container">
@@ -87,6 +117,7 @@ class Game extends React.Component {
                    className="button-answers"
                    data-testid="correct-answer"
                    onClick={ this.checkAnswer }
+                   disabled={ isDisable }
                  >
                    { answer }
                  </button>
@@ -99,6 +130,7 @@ class Game extends React.Component {
                    className="button-answers"
                    data-testid={ `wrong-answer-${i}` }
                    onClick={ this.checkAnswer }
+                   disabled={ isDisable }
                  >
                    { answer }
                  </button>
@@ -111,6 +143,7 @@ class Game extends React.Component {
      return (
        <div>
          <Header />
+         <p>{countdown}</p>
          {cardQuestion[number % cardQuestion.length]}
        </div>
      );
