@@ -45,7 +45,6 @@ class Game extends React.Component {
      return novoArray;
    }
 
-
    handleClickNext = () => {
      const num = 4;
      this.setState((previous) => {
@@ -55,80 +54,80 @@ class Game extends React.Component {
          this.setState({ index: previous.index + 1 });
        }
      });
-    }
-
-    handleClickAnswer = ({ target }) => {
-     console.log(target);
-     this.setState({ isAnswered: true });
-    
-     const buttons = document.querySelectorAll('.button-answers');
-     console.log(buttons);
-     buttons.forEach((button) => {
-       if (button.id === 'incorrect') {
-         button.style = 'border: 3px solid red';
-       } else {
-         button.style = 'border: 3px solid rgb(6, 240, 15)';
-       }
-     });
    }
 
-   render() {
-     const { novoArray1, correctAnswer, index, isAnswered } = this.state;
-     const cardQuestion = novoArray1.map((question) => (
-       <div key={ question.category } className="container">
-         <p
-           key={ question.category }
-           className="container-text"
-           data-testid="question-category"
-         >
+    handleClickAnswer = ({ target }) => {
+      console.log(target);
+      this.setState({ isAnswered: true });
+
+      const buttons = document.querySelectorAll('.button-answers');
+      console.log(buttons);
+      buttons.forEach((button) => {
+        if (button.id === 'incorrect') {
+          button.style = 'border: 3px solid red';
+        } else {
+          button.style = 'border: 3px solid rgb(6, 240, 15)';
+        }
+      });
+    }
+
+    render() {
+      const { novoArray1, correctAnswer, index, isAnswered } = this.state;
+      const cardQuestion = novoArray1.map((question) => (
+        <div key={ question.category } className="container">
+          <p
+            key={ question.category }
+            className="container-text"
+            data-testid="question-category"
+          >
            Categoria:
-           { question.category }
-         </p>
-         <p
-           key={ question.question }
-           className="container-text"
-           data-testid="question-text"
-         >
+            { question.category }
+          </p>
+          <p
+            key={ question.question }
+            className="container-text"
+            data-testid="question-text"
+          >
            Pergunta:
-           { question.question }
-         </p>
-         <div data-testid="answer-options">
-           {question.answers.map((answer, i) => (
-             (correctAnswer.includes(answer))
-               ? (
-                 <button
-                   type="button"
-                   key={ i + 1 }
-                   id="correct"
-                   className="button-answers"
-                   data-testid="correct-answer"
-                   onClick={ this.handleClickAnswer }
-                 >
-                   { answer }
-                 </button>
-               )
-               : (
-                 <button
-                   type="button"
-                   key={ i + 1 }
-                   id="incorrect"
-                   className="button-answers"
-                   data-testid={ `wrong-answer-${i}` }
-                   onClick={ this.handleClickAnswer }
-                 >
-                   { answer }
-                 </button>
-               )
-             //  Pesquisa: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-           )).sort(() => [Math.random() - '0.5'])}
-         </div>
-       </div>
-     ));
-     return (
-       <div>
-         <Header />
-         {cardQuestion[index]}
-         {(isAnswered)
+            { question.question }
+          </p>
+          <div data-testid="answer-options">
+            {question.answers.map((answer, i) => (
+              (correctAnswer.includes(answer))
+                ? (
+                  <button
+                    type="button"
+                    key={ i + 1 }
+                    id="correct"
+                    className="button-answers"
+                    data-testid="correct-answer"
+                    onClick={ this.handleClickAnswer }
+                  >
+                    { answer }
+                  </button>
+                )
+                : (
+                  <button
+                    type="button"
+                    key={ i + 1 }
+                    id="incorrect"
+                    className="button-answers"
+                    data-testid={ `wrong-answer-${i}` }
+                    onClick={ this.handleClickAnswer }
+                  >
+                    { answer }
+                  </button>
+                )
+              //  Pesquisa: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+            )).sort(() => [Math.random() - '0.5'])}
+          </div>
+        </div>
+      ));
+      return (
+        <div>
+          <Header />
+          {cardQuestion[index]}
+          {(isAnswered)
          && (
            <button
              type="button"
@@ -138,9 +137,9 @@ class Game extends React.Component {
              Next
            </button>
          )}
-       </div>
-     );
-   }
+        </div>
+      );
+    }
 }
 
 const mapStateToProps = (state) => ({
