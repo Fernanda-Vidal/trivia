@@ -52,20 +52,25 @@ class Game extends React.Component {
       answers: [object.correct_answer, ...object.incorrect_answers],
     }));
 
+    const corrects = novoArray.map((answer) => answer.answers[0]);
+    novoArray.map((chave) => chave.answers.sort(() => [Math.random() - '0.5']));
+
     this.setState({
       novoArray1: [...novoArray],
-      correctAnswer: novoArray.map((answer) => answer.answers[0]),
+      correctAnswer: corrects,
     });
-    return novoArray;
   }
 
   handleClickNext = () => {
-    const num = 4;
+    const { history } = this.props;
+    const num = 5;
+    // const { index } = this.state;
+    // console.log(index);
     this.setState((previous) => {
       if (previous.index === num) {
-        this.setState({ index: 0 });
+        history.push('/feedback');
       } else {
-        this.setState({ index: previous.index + 1 });
+        this.setState({ index: previous.index + 1, countdown: 30, isDisable: true });
       }
     });
   }
@@ -74,7 +79,7 @@ class Game extends React.Component {
     console.log(target);
     this.setState({ isAnswered: true });
     const buttons = document.querySelectorAll('.button-answers');
-    console.log(buttons);
+    // console.log(buttons);
     buttons.forEach((button) => {
       if (button.id === 'incorrect') {
         button.style = 'border: 3px solid red';
@@ -152,7 +157,7 @@ class Game extends React.Component {
                 </button>
               )
               //  Pesquisa: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-          )).sort(() => [Math.random() - '0.5'])}
+          ))/*     .sort(() => [Math.random() - '0.5']) */}
         </div>
       </div>
     ));
