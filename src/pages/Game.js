@@ -8,10 +8,12 @@ import '../css/Game.css';
 
 class Game extends React.Component {
   state = {
+    countdown: 30,
     novoArray1: [],
     correctAnswer: '',
     index: 0,
     isAnswered: '',
+    isDisable: false,
   }
 
   async componentDidMount() {
@@ -25,8 +27,19 @@ class Game extends React.Component {
         history.push('/');
       }
     });
-    // const tokenValid = 0;
+
     this.shuffleAnswers();
+  /*   const number = 1000;
+    const timeOut = setTimeout(() => {
+      this.setState((prev) => ({
+        countdown: prev.countdown - 1,
+      }));
+    }, number);
+    return timeOut; */
+  }
+
+  componentDidUpdate() {
+    this.countdown();
   }
 
   shuffleAnswers = () => {
@@ -70,8 +83,24 @@ class Game extends React.Component {
     });
   }
 
+  countdown() {
+    const { countdown } = this.state;
+    const number = 1000;
+    const timeOut = setTimeout(() => {
+      if (countdown === 0) {
+        this.setState({ isDisable: true, countdown: 0 });
+      } else {
+        this.setState((prev) => ({
+          isDisable: false,
+          countdown: prev.countdown - 1,
+        }));
+      }
+    }, number);
+    return timeOut;
+  }
+
   render() {
-    const { novoArray1, correctAnswer, index, isAnswered } = this.state;
+    const { novoArray1, correctAnswer, index, isAnswered, isDisable } = this.state;
     const cardQuestion = novoArray1.map((question) => (
       <div key={ question.category } className="container">
         <p
@@ -101,6 +130,7 @@ class Game extends React.Component {
                   className="button-answers"
                   data-testid="correct-answer"
                   onClick={ this.handleClickAnswer }
+                  disabled={ isDisable }
                 >
                   {answer}
                 </button>
@@ -113,6 +143,7 @@ class Game extends React.Component {
                   className="button-answers"
                   data-testid={ `wrong-answer-${i}` }
                   onClick={ this.handleClickAnswer }
+                  disabled={ isDisable }
                 >
                   {answer}
                 </button>
@@ -122,6 +153,7 @@ class Game extends React.Component {
         </div>
       </div>
     ));
+
     return (
       <div>
         <Header />
