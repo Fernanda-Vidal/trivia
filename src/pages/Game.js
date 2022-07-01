@@ -26,6 +26,7 @@ class Game extends React.Component {
         localStorage.removeItem('token');
         history.push('/');
       }
+      // this.countdown();
     });
 
     this.shuffleAnswers();
@@ -88,7 +89,7 @@ class Game extends React.Component {
     const number = 1000;
     const timeOut = setTimeout(() => {
       if (countdown === 0) {
-        this.setState({ isDisable: true, countdown: 0 });
+        this.setState({ isDisable: true, countdown: 30 });
       } else {
         this.setState((prev) => ({
           isDisable: false,
@@ -100,7 +101,9 @@ class Game extends React.Component {
   }
 
   render() {
-    const { novoArray1, correctAnswer, index, isAnswered, isDisable } = this.state;
+    const {
+      novoArray1,
+      correctAnswer, index, isAnswered, isDisable, countdown } = this.state;
     const cardQuestion = novoArray1.map((question) => (
       <div key={ question.category } className="container">
         <p
@@ -157,6 +160,7 @@ class Game extends React.Component {
     return (
       <div>
         <Header />
+        {countdown}
         {cardQuestion[index]}
         {(isAnswered)
             && (
