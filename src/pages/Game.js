@@ -45,6 +45,7 @@ class Game extends React.Component {
      return novoArray;
    }
 
+
    handleClickNext = () => {
      const num = 4;
      this.setState((previous) => {
@@ -53,12 +54,21 @@ class Game extends React.Component {
        } else {
          this.setState({ index: previous.index + 1 });
        }
-     });
-   }
+      }}
 
-   handleClickAnswer = ({ target }) => {
+    handleClickAnswer = ({ target }) => {
      console.log(target);
      this.setState({ isAnswered: true });
+    
+     const buttons = document.querySelectorAll('.button-answers');
+     console.log(buttons);
+     buttons.forEach((button) => {
+       if (button.id === 'incorrect') {
+         button.style = 'border: 3px solid red';
+       } else {
+         button.style = 'border: 3px solid rgb(6, 240, 15)';
+       }
+     });
    }
 
    render() {
@@ -88,7 +98,8 @@ class Game extends React.Component {
                  <button
                    type="button"
                    key={ i + 1 }
-                   className="container-text"
+                   id="correct"
+                   className="button-answers"
                    data-testid="correct-answer"
                    onClick={ this.handleClickAnswer }
                  >
@@ -99,7 +110,8 @@ class Game extends React.Component {
                  <button
                    type="button"
                    key={ i + 1 }
-                   className="container-text"
+                   id="incorrect"
+                   className="button-answers"
                    data-testid={ `wrong-answer-${i}` }
                    onClick={ this.handleClickAnswer }
                  >
