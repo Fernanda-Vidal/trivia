@@ -12,7 +12,7 @@ class Header extends React.Component {
   }
 
   render() {
-    const { userName } = this.props;
+    const { userName, score } = this.props;
     return (
       <div>
         <span data-testid="header-player-name">{ userName }</span>
@@ -22,13 +22,16 @@ class Header extends React.Component {
           alt="avatar do usuário"
         />
         <br />
-        <span data-testid="header-score">Score: 0</span>
+        <span data-testid="header-score">
+          { score }
+        </span>
       </div>
     );
   }
 }
 
 Header.propTypes = {
+  score: PropTypes.number.isRequired,
   userEmail: PropTypes.string.isRequired,
   userName: PropTypes.string.isRequired,
 };
@@ -36,6 +39,7 @@ Header.propTypes = {
 const mapStateToProps = (state) => ({
   userEmail: state.loginReducer.userEmail,
   userName: state.loginReducer.userName,
+  score: state.player.score,
 });
 
 export default connect(mapStateToProps)(Header);

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import Header from '../component/Header';
-import { addQuestions } from '../redux/actions';
+import { addAssertations, addQuestions, addScore } from '../redux/actions';
 import { getQuestions } from '../services/GetApi';
 import '../css/Game.css';
 
@@ -27,80 +27,92 @@ class Game extends React.Component {
         history.push('/');
       }
     });
-
+    const mil = 1000;
     this.shuffleAnswers();
-  /*   const number = 1000;
-    const timeOut = setTimeout(() => {
-      this.setState((prev) => ({
-        countdown: prev.countdown - 1,
-      }));
-    }, number);
-    return timeOut; */
-  }
-
-  componentDidUpdate() {
-    this.countdown();
+    // Solução na pesquisa: https://pt.wikibooks.org/wiki/JavaScript/Intervalos_de_tempo#:~:text=O%20setInterval&text=A%20sua%20sintaxe%20%C3%A9%3A,segundo%20equivale%20a%201000%20mil%C3%A9simos.
+    setInterval(this.countdown, mil);
   }
 
   shuffleAnswers = () => {
     const { questionResults } = this.props;
-    //  questionResults.map((objeto) => this.setState({ correct: objeto.correct_answer}));
     const novoArray = questionResults.map((object) => ({
       category: object.category,
       question: object.question,
+      difficulty: object.difficulty,
       answers: [object.correct_answer, ...object.incorrect_answers],
     }));
 
+    const corrects = novoArray.map((answer) => answer.answers[0]);
+    novoArray.map((chave) => chave.answers.sort(() => [Math.random() - '0.5']));
+
     this.setState({
       novoArray1: [...novoArray],
-      correctAnswer: novoArray.map((answer) => answer.answers[0]),
+      correctAnswer: corrects,
     });
-    return novoArray;
   }
 
   handleClickNext = () => {
-    const num = 4;
+    const { history } = this.props;
+    const { novoArray1 } = this.state;
+    const num = novoArray1.length - 1;
+    console.log(num);
     this.setState((previous) => {
       if (previous.index === num) {
-        this.setState({ index: 0 });
+        history.push('/feedback');
       } else {
-        this.setState({ index: previous.index + 1 });
+        this.setState({ index: previous.index + 1, countdown: 30, isDisable: true });
       }
     });
   }
 
   handleClickAnswer = ({ target }) => {
-    console.log(target);
-    this.setState({ isAnswered: true });
     const buttons = document.querySelectorAll('.button-answers');
-    console.log(buttons);
+    const { index, novoArray1, countdown } = this.state;
+    const { dispatch } = this.props;
+    const dez = 10;
+    const tres = 3;
+    this.setState({ isAnswered: true });
     buttons.forEach((button) => {
-      if (button.id === 'incorrect') {
+      if (button.id !== 'correct') {
         button.style = 'border: 3px solid red';
       } else {
         button.style = 'border: 3px solid rgb(6, 240, 15)';
       }
     });
+    console.log(novoArray1[index].difficulty);
+    console.log(target.id);
+    if (target.id === 'correct') {
+      if (novoArray1[index].difficulty === 'hard') {
+        const score = dez + (countdown * tres);
+        dispatch(addScore(score));
+        dispatch(addAssertations(1));
+      } else if (novoArray1[index].difficulty === 'medium') {
+        const score = dez + (countdown * 2);
+        dispatch(addScore(score));
+        dispatch(addAssertations(1));
+      } else {
+        const score = dez + (countdown);
+        dispatch(addScore(score));
+        dispatch(addAssertations(1));
+      }
+    }
   }
 
-  countdown() {
+  countdown = () => {
     const { countdown } = this.state;
-    const number = 1000;
-    const timeOut = setTimeout(() => {
-      if (countdown === 0) {
-        this.setState({ isDisable: true, countdown: 0 });
-      } else {
-        this.setState((prev) => ({
-          isDisable: false,
-          countdown: prev.countdown - 1,
-        }));
-      }
-    }, number);
-    return timeOut;
+    if (countdown === 0) {
+      this.setState({ isDisable: true, isAnswered: true });
+    } else {
+      this.setState((prev) => ({
+        isDisable: false,
+        countdown: prev.countdown - 1 }));
+    }
   }
 
   render() {
-    const { novoArray1, correctAnswer, index, isAnswered, isDisable } = this.state;
+    const {
+      novoArray1,
+      correctAnswer, index, isAnswered, isDisable, countdown } = this.state;
     const cardQuestion = novoArray1.map((question) => (
       <div key={ question.category } className="container">
         <p
@@ -116,7 +128,7 @@ class Game extends React.Component {
           className="container-text"
           data-testid="question-text"
         >
-          Pergunta:
+          {/* Pergunta: */}
           {question.question}
         </p>
         <div data-testid="answer-options">
@@ -149,7 +161,7 @@ class Game extends React.Component {
                 </button>
               )
               //  Pesquisa: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-          )).sort(() => [Math.random() - '0.5'])}
+          ))}
         </div>
       </div>
     ));
@@ -157,6 +169,7 @@ class Game extends React.Component {
     return (
       <div>
         <Header />
+        {countdown}
         {cardQuestion[index]}
         {(isAnswered)
             && (
@@ -179,6 +192,7 @@ const mapStateToProps = (state) => ({
 
 Game.propTypes = {
   dispatch: PropTypes.func.isRequired,
+  // dispatchScore: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
