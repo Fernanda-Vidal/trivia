@@ -8,7 +8,7 @@ import '../css/Game.css';
 
 class Game extends React.Component {
   state = {
-    countdown: 30,
+    countdown: 5,
     novoArray1: [],
     correctAnswer: '',
     index: 0,
@@ -27,10 +27,11 @@ class Game extends React.Component {
         history.push('/');
       }
     });
-    const mil = 1000;
+    // const mil = 1000;
     this.shuffleAnswers();
+    this.countdown()
     // Solução na pesquisa: https://pt.wikibooks.org/wiki/JavaScript/Intervalos_de_tempo#:~:text=O%20setInterval&text=A%20sua%20sintaxe%20%C3%A9%3A,segundo%20equivale%20a%201000%20mil%C3%A9simos.
-    setInterval(this.countdown, mil);
+    // setInterval(this.countdown, mil);
   }
 
   shuffleAnswers = () => {
@@ -60,7 +61,7 @@ class Game extends React.Component {
       if (previous.index === num) {
         history.push('/feedback');
       } else {
-        this.setState({ index: previous.index + 1, countdown: 30, isDisable: true });
+        this.setState({ index: previous.index + 1, countdown: 30 });
       }
     });
   }
@@ -98,7 +99,7 @@ class Game extends React.Component {
     }
   }
 
-  countdown = () => {
+  /* countdown = () => {
     const { countdown } = this.state;
     if (countdown === 0) {
       this.setState({ isDisable: true, isAnswered: true });
@@ -107,6 +108,40 @@ class Game extends React.Component {
         isDisable: false,
         countdown: prev.countdown - 1 }));
     }
+  } */
+  
+  funcTimer() {
+    const { countdown, index } = this.state;
+    const { history } = this.props;
+    const y = 5;
+    if (countdown == 0) {
+      this.setState((prev) => ({
+        isDisable: true,
+        index: prev.index + 1,
+        countdown: 30,
+      }));
+    } else if (countdown > 0) {
+      this.setState((prev) => ({
+        isDisable: false,
+        countdown: prev.countdown - 1,
+      }));
+    } else {
+      clearInterval();
+    }
+    if (index >= y) {
+      this.setState({
+        index: y,
+      });
+      history.push('./feedback');
+    }
+  }
+
+  countdown() {
+    const number = 1000;
+    const timeOut = setInterval(() => {
+      this.funcTimer();
+    }, number);
+    return timeOut;
   }
 
   render() {
