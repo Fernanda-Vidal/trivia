@@ -8,7 +8,7 @@ import '../css/Game.css';
 
 class Game extends React.Component {
   state = {
-    countdown: 30,
+    countdown: 10,
     novoArray1: [],
     correctAnswer: '',
     index: 0,
@@ -29,7 +29,7 @@ class Game extends React.Component {
     });
     // const mil = 1000;
     this.shuffleAnswers();
-    this.countdown()
+    this.countdown();
     // Solução na pesquisa: https://pt.wikibooks.org/wiki/JavaScript/Intervalos_de_tempo#:~:text=O%20setInterval&text=A%20sua%20sintaxe%20%C3%A9%3A,segundo%20equivale%20a%201000%20mil%C3%A9simos.
     // setInterval(this.countdown, mil);
   }
@@ -99,22 +99,11 @@ class Game extends React.Component {
     }
   }
 
-  /* countdown = () => {
-    const { countdown } = this.state;
-    if (countdown === 0) {
-      this.setState({ isDisable: true, isAnswered: true });
-    } else {
-      this.setState((prev) => ({
-        isDisable: false,
-        countdown: prev.countdown - 1 }));
-    }
-  } */
-  
   funcTimer() {
     const { countdown, index } = this.state;
     const { history } = this.props;
     const y = 5;
-    if (countdown == 0) {
+    if (countdown === 0) {
       this.setState((prev) => ({
         isDisable: true,
         index: prev.index + 1,
