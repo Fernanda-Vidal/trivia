@@ -4,6 +4,9 @@ export const ADD_USERNAME = 'ADD_USERNAME';
 export const ADD_USEREMAIL = 'ADD_USEREMAIL';
 export const ADD_USERTOKEN = 'ADD_USERTOKEN';
 export const ADD_QUESTIONS = 'ADD_QUESTIONS';
+export const ADD_ASSERTATIONS = 'ADD_ASSERTATIONS';
+export const ADD_SCORE = 'ADD_SCORE';
+export const ADD_GRAVATAR = 'ADD_GRAVATAR';
 
 export const addUserName = (user) => ({
   type: ADD_USERNAME,
@@ -33,10 +36,16 @@ export function getToken() {
   };
 }
 
-// export function getQuestion(token) {
-//   return async (dispatch) => {
-//     //getQuestions(token).then((resp) => {
-//     //  dispatch(addQuestions(resp));
-//     //});
-//   };
-// }
+export const addAssertations = () => ({
+  type: ADD_ASSERTATIONS,
+});
+
+export const addScore = (score) => ({
+  type: ADD_SCORE,
+  score,
+});
+
+// export const addGravatar = (email) => ({
+//   type: ADD_GRAVATAR,
+//   email,
+// });
