@@ -22,6 +22,7 @@ class Header extends React.Component {
           alt="avatar do usuário"
         />
         <br />
+        <span>Placar: </span>
         <span data-testid="header-score">
           { score }
         </span>
