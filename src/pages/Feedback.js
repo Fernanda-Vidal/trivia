@@ -22,10 +22,13 @@ class Feedback extends React.Component {
       <div>
         <h1>FeedBack</h1>
         <Header />
-        <p data-testid="feedback-total-question">{ assertions }</p>
-        <p data-testid="feedback-total-score">
+        <span>Pontuação: </span>
+        <span data-testid="feedback-total-question">{ assertions }</span>
+        <br />
+        <span>Placar total:</span>
+        <span data-testid="feedback-total-score">
           { score }
-        </p>
+        </span>
 
         <p>
           {assertions >= n
