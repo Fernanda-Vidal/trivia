@@ -7,7 +7,7 @@ import App from '../App'
 
 describe('1- Crie a pagina de login', () => {
 
-    test('Verificar se a pagina contém o input name, email, play e config / Se o botão esta inicialmente desativado e se ao clicar no play redireciona para a pagiina de jogar', () => {
+    test('Verificar se a pagina contém o input name, email, play e config / Se o botão esta inicialmente desativado e se ao clicar no play redireciona para a pagina de jogar', () => {
         renderWithRouterAndRedux(<App />)
         const inputEmail = screen.getByTestId('input-gravatar-email')
         const inputName = screen.getByTestId('input-player-name')
