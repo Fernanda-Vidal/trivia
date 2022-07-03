@@ -17,13 +17,15 @@ class Header extends React.Component {
     return (
       <header id="Header">
         <div id="info-container">
-          <span
-            data-testid="header-player-name"
-            className="header-info"
-          >
-            { userName }
+          <div className="info-container-tex">
+            <span
+              data-testid="header-player-name"
+              className="header-info"
+            >
+              { userName }
 
-          </span>
+            </span>
+          </div>
           <img
             data-testid="header-profile-picture"
             src={ this.getImgGravatar() }
@@ -31,9 +33,11 @@ class Header extends React.Component {
             id="avatar"
           />
           <br />
-          <span data-testid="header-score" className="header-info">
-            { score }
-          </span>
+          <div className="info-container-text">
+            <span data-testid="header-score" className="header-info">
+              { score }
+            </span>
+          </div>
         </div>
       </header>
     );

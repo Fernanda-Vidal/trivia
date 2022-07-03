@@ -2,24 +2,27 @@
   display: flex;
   justify-content: center;
   text-align: center;
-  text-align: center;
   width: 100%;
 }
 
 #info-container {
-    background-color: aquamarine;
-    display: flex;
-    margin: auto;
-    flex-flow: column wrap;
-    justify-content: center;
-    width: 450px;
-    text-align: right;
+  background-color: rgb(30, 63, 37);
+  display: flex;
+  margin: auto;
+  font-size: 30px;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 450px;
+  text-align: right;
 }
 
 #avatar {
-  width: 150px;
+  display: flex;
+  width: 300px ;
+  order: -1;
 }
 
-.header-info {
-  width: 200px;
+.info-container-text {
+  display: flex;
+  order: 2;
 }
