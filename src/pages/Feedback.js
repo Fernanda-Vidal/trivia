@@ -4,6 +4,17 @@ import { connect } from 'react-redux';
 import Header from '../component/Header';
 
 class Feedback extends React.Component {
+  componentDidMount() {
+    const { user, email, score } = this.props;
+    const player = { user, email, score };
+    const playerList = localStorage.getItem('player');
+    if (localStorage.player !== undefined) {
+      localStorage.setItem('player', JSON.stringify([...JSON.parse(playerList), player]));
+    } else {
+      localStorage.setItem('player', JSON.stringify([player]));
+    }
+  }
+
   render() {
     const { assertions, history, score } = this.props;
     const n = 3;
@@ -41,6 +52,8 @@ class Feedback extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
+  user: state.player.name,
+  email: state.player.gravatar,
   score: state.player.score,
   assertions: state.player.assertions,
 });
