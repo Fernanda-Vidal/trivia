@@ -8,18 +8,11 @@
   border: 2px solid black;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   height: 800px;
   margin: auto;
+  justify-content: space-around;
   text-align: center;
   width: 60%;
-}
-
-#Header {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 #category {

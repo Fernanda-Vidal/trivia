@@ -1,100 +1,100 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 body {
-	background-color: #5fc9ad;
+  background-color: #5fc9ad;
 }
 
 #login-container {
-	background-color: #43afa6;
-	border: 8px solid #c3e0e5;
-	border-radius: 10px;
-	display: flex;
-	flex-direction: column;
-	height: 500px;
-	margin: 200px auto;
-	padding: 40px;
-	width: 400px;
-	justify-items: center;
+  background-color: #43afa6;
+  border: 8px solid #c3e0e5;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  margin: 200px auto;
+  padding: 40px;
+  width: 400px;
+  justify-items: center;
 }
 
 #tittle-container {
-	background-color: #43afa6;
-	border-radius: 10px 10px 0 0;
-	height: 130px;
-    font-family: 'Pacifico', cursive;
-	font-size: 40px;
-	color: white;
-	text-align: center;
+  background-color: #43afa6;
+  border-radius: 10px 10px 0 0;
+  color: white;
+  font-family: 'Pacifico', cursive;
+  font-size: 40px;
+  height: 130px;
+  text-align: center;
 }
 
 #tittle {
-	margin: 40px auto;
+  margin: 40px auto;
 }
 
 #form {
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .label-login {
-	align-items: center;
-	background-color: #307a88;
-	border: 2px solid #c3e0e5;
-	border-radius: 50px;
-	color: #c3e0e5;
-	display: flex;
-	font-size: 25px;
-	font-weight: 900;
-	justify-content: space-between;
-	margin: 20px 0;
-	opacity: 0.8;
-	padding-left: 10px;
+  align-items: center;
+  background-color: #307a88;
+  border: 2px solid #c3e0e5;
+  border-radius: 50px;
+  color: #c3e0e5;
+  display: flex;
+  font-size: 25px;
+  font-weight: 900;
+  justify-content: space-between;
+  margin: 20px 0;
+  opacity: 0.8;
+  padding-left: 10px;
 }
 
 .input-login {
-	border-radius: 50px;
-	font-size: 20px;
-	height: 60px;
-	width: 300px;
+  border-radius: 50px;
+  font-size: 20px;
+  height: 60px;
+  width: 300px;
 }
 
 .input-login:hover {
-	height: 85px;
-	width: 350px;
+  height: 85px;
+  width: 350px;
 }
 
 #button-container {
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	align-items: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 #button-login,
 #button-config {
-	border-radius: 50px;
-	color: #307a88;
-	font-size: 20px;
-	height: 60px;
-	margin-bottom: 5px;
-	width: 300px;
+  border-radius: 50px;
+  color:#307a88;
+  font-size: 20px;
+  height: 60px;
+  margin-bottom: 5px;
+  width: 300px;
 }
 
 #button-login:hover,
 #button-config:hover {
-	background-color: #2f4858;
-	color: white;
+  background-color:#2f4858;
+  color:white;
 }
 
 #button-login:active,
 #button-config:active {
-	background-color: #307a88;
-	color: white;
+  background-color:#307a88;
+  color:white;
 }
 
 #button-login {
-	background-color: white;
+  background-color:white;
 }
 
 #button-config {

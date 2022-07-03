@@ -1,0 +1,25 @@
+#header-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  text-align: center;
+  width: 100%;
+}
+
+#info-container {
+    background-color: aquamarine;
+    display: flex;
+    margin: auto;
+    flex-flow: column wrap;
+    justify-content: center;
+    width: 450px;
+    text-align: right;
+}
+
+#avatar {
+  width: 150px;
+}
+
+.header-info {
+  width: 200px;
+}
