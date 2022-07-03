@@ -141,7 +141,7 @@ class Game extends React.Component {
       <div key={ question.category } className="container">
         <p
           key={ question.category }
-          className="container-text"
+          id="category"
           data-testid="question-category"
         >
           Categoria:

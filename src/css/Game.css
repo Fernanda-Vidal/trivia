@@ -6,5 +6,23 @@
 .container {
   background-color: gainsboro;
   border: 2px solid black;
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 800px;
+  margin: auto;
+  text-align: center;
+  width: 60%;
+}
+
+#Header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#category {
+  font-size: 50px;
+  font-weight: 900;
 }
