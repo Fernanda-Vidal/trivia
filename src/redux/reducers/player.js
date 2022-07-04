@@ -1,4 +1,8 @@
-import { ADD_ASSERTATIONS, ADD_SCORE, ADD_USEREMAIL, ADD_USERNAME } from '../actions';
+import { ADD_ASSERTATIONS,
+  ADD_SCORE,
+  ADD_USEREMAIL,
+  ADD_USERNAME,
+  CLEAR_SCORE } from '../actions';
 
 const INITIAL_STATE = {
   name: '',
@@ -17,6 +21,11 @@ const player = (state = INITIAL_STATE, action) => {
     return ({
       ...state,
       score: state.score + action.score });
+  case CLEAR_SCORE:
+    return ({
+      ...state,
+      score: 0,
+    });
   case ADD_USEREMAIL:
     return ({ ...state, gravatar: action.payload });
   default: return state;

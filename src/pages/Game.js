@@ -8,7 +8,7 @@ import '../css/Game.css';
 
 class Game extends React.Component {
   state = {
-    countdown: 30,
+    countdown: 35,
     novoArray1: [],
     correctAnswer: '',
     index: 0,
@@ -82,6 +82,7 @@ class Game extends React.Component {
     });
     console.log(novoArray1[index].difficulty);
     console.log(target.id);
+    // if (novoArray1[0])
     if (target.id === 'correct') {
       if (novoArray1[index].difficulty === 'hard') {
         const score = dez + (countdown * tres);

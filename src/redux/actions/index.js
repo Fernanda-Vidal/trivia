@@ -7,6 +7,7 @@ export const ADD_QUESTIONS = 'ADD_QUESTIONS';
 export const ADD_ASSERTATIONS = 'ADD_ASSERTATIONS';
 export const ADD_SCORE = 'ADD_SCORE';
 export const ADD_GRAVATAR = 'ADD_GRAVATAR';
+export const CLEAR_SCORE = 'CLEAR_SCORE';
 
 export const addUserName = (user) => ({
   type: ADD_USERNAME,
@@ -45,7 +46,6 @@ export const addScore = (score) => ({
   score,
 });
 
-// export const addGravatar = (email) => ({
-//   type: ADD_GRAVATAR,
-//   email,
-// });
+export const clearScore = () => ({
+  type: CLEAR_SCORE,
+});

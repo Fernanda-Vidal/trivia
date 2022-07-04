@@ -4,17 +4,17 @@ import { connect } from 'react-redux';
 import md5 from 'crypto-js/md5';
 
 class Ranking extends React.Component {
-  state = {
-    ranking: [],
-  }
+  // state = {
+  //   ranking: [],
+  // }
 
-  componentDidMount() {
-    const getRanking = JSON.parse(localStorage.getItem('player'));
-    console.log(getRanking[0]);
-    const ranking = getRanking.sort((a, b) => b.score - a.score);
-    console.log(ranking);
-    this.setState({ ranking });
-  }
+  // componentDidMount() {
+  //   const getRanking = JSON.parse(localStorage.getItem('player'));
+  //   console.log(getRanking[0]);
+  //   const ranking = getRanking.sort((a, b) => b.score - a.score);
+  //   console.log(ranking);
+  //   this.setState({ ranking });
+  // }
 
   getImgGravatar = () => {
     const { email } = this.props;
@@ -24,24 +24,26 @@ class Ranking extends React.Component {
   }
 
   render() {
-    const { ranking } = this.state;
+    // const { ranking } = this.state;
     const { history } = this.props;
     return (
       <div>
         <h1 data-testid="ranking-title">Ranking:</h1>
         <ol>
-          {ranking.map((player, i) => (
-            <li key={ i + 1 }>
-              <img
-                src={ this.getImgGravatar(player.email) }
-                alt="gravatar"
-              />
-              <p data-testid={ `player-name-${player.user}` }>
-                {player.user}
-              </p>
-              <p data-testid={ `player-score-${player.score}` }>{player.score}</p>
-            </li>
-          ))}
+          {JSON.parse(localStorage.getItem('player'))
+            .sort((a, b) => b.score - a.score)
+            .map((player, i) => (
+              <li key={ i + 1 }>
+                <img
+                  src={ this.getImgGravatar(player.email) }
+                  alt="gravatar"
+                />
+                <p data-testid={ `player-name-${player.user}` }>
+                  {player.user}
+                </p>
+                <p data-testid={ `player-score-${player.score}` }>{player.score}</p>
+              </li>
+            ))}
         </ol>
         <button
           type="button"
