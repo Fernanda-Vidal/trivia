@@ -4,3 +4,10 @@
   justify-content: space-around;
   text-align: center;
 }
+
+.ranking-tittle {
+  color: #2f4858;
+  font-family: Pacifico , sans-serif;
+  font-size: 75px;
+}
+

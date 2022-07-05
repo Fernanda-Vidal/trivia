@@ -29,7 +29,7 @@ class Ranking extends React.Component {
     const { history } = this.props;
     return (
       <div className="container-ranking">
-        <h1 data-testid="ranking-title" className="tittle-ranking">Ranking:</h1>
+        <h1 data-testid="ranking-title" className="ranking-tittle">Ranking:</h1>
         <ol>
           {JSON.parse(localStorage.getItem('player'))
             .sort((a, b) => b.score - a.score)
