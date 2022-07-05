@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap') ;
+
+body {
+  background-image: url('../images/background.jpg');
+  background-size: cover;
+}
+
+.login-container {
+  background-color: #43afa6;
+  border: 8px solid #c3e0e5;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  justify-content: space-around;
+  margin: 200px auto;
+  padding: 40px;
+  width: 400px;
+}
+
+.tittle-container {
+  background-image: url('../images/cacto-icone.png');
+  background-position: right;
+  background-repeat: space;
+  background-size: 37%;
+  border-radius: 10px 10px 0 0;
+  color: white;
+  display: flex;
+  flex-flow: column wrap;
+  font-family: Pacifico , sans-serif;
+  font-size: 40px;
+  height: 50%;
+  line-height: 70px;
+  text-align: center;
+
+}
+
+.tittle {
+  margin: 0 auto;
+}
+
+.trybe {
+  font-size: 50px;
+  font-weight: 600;
+  padding-top: 20px;
+}
+
+.form {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.label-login {
+  align-items: center;
+  background-color: #307a88;
+  border: 2px solid #c3e0e5;
+  border-radius: 50px;
+  color: #c3e0e5;
+  display: flex;
+  font-size: 25px;
+  font-weight: 900;
+  justify-content: space-between;
+  margin: 20px 0;
+  opacity: 0.8;
+  padding-left: 10px;
+}
+
+.input-login {
+  border-radius: 50px;
+  font-size: 20px;
+  height: 60px;
+  width: 300px;
+}
+
+.input-login:hover {
+  height: 85px;
+  width: 350px;
+}
+
+.button-container {
+  align-items: center;
+  display: flex;
+  flex-flow: column wrap;
+  margin: auto;
+}
+
+.button-login, .button-config {
+  background-color: white;
+  border-radius: 50px;
+  color: #307a88;
+  font-size: 20px;
+  height: 60px;
+  margin-bottom: 5px;
+  width: 300px;
+}
+
+.button-login:hover, .button-config:hover {
+  background-color: #2f4858;
+  color: white;
+}
+
+.button-login:active, .button-config:active {
+  background-color: #307a88;
+  color: white;
+}

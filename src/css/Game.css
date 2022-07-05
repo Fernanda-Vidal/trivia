@@ -1,10 +1,109 @@
-.container-text, .container {
-  background-color: whitesmoke;
-  border: 2px solid black;
-}
+@import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap') ;
 
 .container {
-  background-color: gainsboro;
+  background-color: #43afa6;
+  border: 7px solid #2f4858;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  height: 800px;
+  justify-content: first baseline;
+  margin: auto;
+  text-align: center;
+  width: 60%;
+}
+
+.category {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.countdown {
+  align-items: center;
+  display: flex;
+  font-size: 30px;
+}
+
+.container-top {
+  display: flex;
+  flex-flow: row wrap;
+  height: 35%;
+  justify-content: space-between;
+  margin: 30px;
+  min-width: auto;
+}
+
+.category-container {
+  background-color: #307a88;
+  border: 3px solid #c3e0e5;
+  border-radius: 20px;
+  color: #c3e0e5;
+  font-family: Titan One , cursive;
+  font-weight: 800;
+  height: 150px;
+  min-width: min-content;
+  padding: 10px;
+  width: 20%;
+}
+
+.contdown-text {
+  vertical-align: middle;
+}
+
+.container-text {
+  align-self: baseline;
+  background-color: #c3e0e5;
   border: 2px solid black;
-  margin-bottom: 20px;
+  border-radius: 20px;
+  color: #2f4858;
+  flex-grow: 1;
+  font-family: Titan One , cursive;
+  font-size: 35px;
+  margin: 80px 10px;
+  min-width: auto;
+  width: 40%;
+}
+
+.label-category {
+  font-size: 25px;
+}
+
+.questions-container {
+  align-self: start;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 20px auto;
+  min-width: auto;
+  width: 50%;
+}
+
+.button-answers, .button-next {
+  background-color: #307a88;
+  border: 3px solid #c3e0e5;
+  border-radius: 20px;
+  color: #c3e0e5;
+  font-family: Titan One , cursive;
+  font-size: 30px;
+  font-weight: 800;
+  height: 150px;
+  margin: 0 0 30px 30px;
+  min-width: min-content;
+  padding: 10px;
+  width: 40%;
+}
+
+.button-answers:first-of-type, .button-answers:last-of-type {
+  background-color: #c3e0e5;
+  color: #307a88;
+}
+
+.button-next {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 10px auto;
+}
+
+p {
+  width: 90%;
 }

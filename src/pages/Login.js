@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as listActions from '../redux/actions';
 import { getToken } from '../redux/actions';
+import '../css/Login.css';
 
 class Login extends React.Component {
     state = {
@@ -41,42 +42,57 @@ class Login extends React.Component {
     render() {
       const { userName, userEmail, isDisable } = this.state;
       return (
-        <div>
-          <h1 data-testid="settings-title">Trivia</h1>
-          <form>
-            <label htmlFor="userName">
-              Digite seu Nome:
+        <div className="login-container">
+          <div className="tittle-container">
+            <spam id="trybe">Trybe</spam>
+            <h1 data-testid="settings-title" className="tittle">Trivia</h1>
+          </div>
+          <form className="form-login">
+            <label htmlFor="userName" className="label-login">
+              Nome:
               <input
                 type="text"
                 name="userName"
                 value={ userName }
+                className="input-login"
                 data-testid="input-player-name"
                 placeholder="Digite seu nome"
                 onChange={ this.handleChangeLogin }
               />
             </label>
 
-            <label htmlFor="userEmail">
-              Digite seu Email:
+            <label htmlFor="userEmail" className="label-login">
+              Email:
               <input
                 type="email"
                 name="userEmail"
                 value={ userEmail }
+                className="input-login"
                 data-testid="input-gravatar-email"
                 placeholder="Digite seu Email"
                 onChange={ this.handleChangeLogin }
               />
             </label>
-
-            <button
-              type="button"
-              data-testid="btn-play"
-              disabled={ isDisable }
-              onClick={ this.buttonHandleClick }
-            >
-              Play
-            </button>
-            <button data-testid="btn-settings" type="button">Configurações</button>
+            <div className="button-container">
+              <button
+                type="button"
+                data-testid="btn-play"
+                id="button-login"
+                className="button-login"
+                disabled={ isDisable }
+                onClick={ this.buttonHandleClick }
+              >
+                Play
+              </button>
+              <button
+                data-testid="btn-settings"
+                type="button"
+                id="button-config"
+                className="button-config"
+              >
+                Configurações
+              </button>
+            </div>
 
           </form>
         </div>

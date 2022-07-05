@@ -1,0 +1,30 @@
+.header-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.info-container {
+  display: flex;
+  flex-flow: column wrap;
+  font-family: Titan One , cursive;
+  font-size: 30px;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+  width: 480px;
+}
+
+.avatar {
+  border-radius: 50%;
+  display: flex;
+  margin: auto;
+  order: -1;
+  width: 180px;
+}
+
+.header-info {
+  color: #114955;
+  font-size: 35px;
+}
