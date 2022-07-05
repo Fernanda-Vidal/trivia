@@ -6,23 +6,24 @@
 }
 
 #info-container {
-  background-color: rgb(30, 63, 37);
   display: flex;
   margin: auto;
   font-size: 30px;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   justify-content: center;
-  width: 450px;
-  text-align: right;
+  width: 480px;
+  text-align: center;
 }
 
 #avatar {
   display: flex;
-  width: 300px ;
+  width: 180px ;
+  border-radius: 50%;
   order: -1;
+  margin: auto;
 }
 
-.info-container-text {
-  display: flex;
-  order: 2;
+.header-info {
+  font-size: 35px;
+  color: azure;
 }

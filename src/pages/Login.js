@@ -42,11 +42,12 @@ class Login extends React.Component {
     render() {
       const { userName, userEmail, isDisable } = this.state;
       return (
-        <div id="login-container">
-          <div id="tittle-container">
-            <h1 data-testid="settings-title" id="tittle">Trivia</h1>
+        <div className="login-container">
+          <div className="tittle-container">
+            <spam id="trybe">Trybe</spam>
+            <h1 data-testid="settings-title" className="tittle">Trivia</h1>
           </div>
-          <form id="form-login">
+          <form className="form-login">
             <label htmlFor="userName" className="label-login">
               Nome:
               <input
@@ -72,11 +73,12 @@ class Login extends React.Component {
                 onChange={ this.handleChangeLogin }
               />
             </label>
-            <div id="button-container">
+            <div className="button-container">
               <button
                 type="button"
                 data-testid="btn-play"
                 id="button-login"
+                className="button-login"
                 disabled={ isDisable }
                 onClick={ this.buttonHandleClick }
               >
@@ -86,6 +88,7 @@ class Login extends React.Component {
                 data-testid="btn-settings"
                 type="button"
                 id="button-config"
+                className="button-config"
               >
                 Configurações
               </button>

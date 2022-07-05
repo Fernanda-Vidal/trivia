@@ -1,40 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap') ;
 
 body {
-  background-color: #5fc9ad;
+  background-image: url('../images/background.jpg');
+  background-size: cover;
 }
 
-#login-container {
+.login-container {
   background-color: #43afa6;
   border: 8px solid #c3e0e5;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   height: 500px;
+  justify-content: space-around;
   margin: 200px auto;
   padding: 40px;
   width: 400px;
-  justify-items: center;
 }
 
-#tittle-container {
-  background-color: #43afa6;
+.tittle-container {
+  background-image: url('../images/cacto-icone.png');
+  background-position: right;
+  background-repeat: space;
+  background-size: 40%;
   border-radius: 10px 10px 0 0;
   color: white;
-  font-family: 'Pacifico', cursive;
-  font-size: 40px;
-  height: 130px;
-  text-align: center;
-}
-
-#tittle {
-  margin: 40px auto;
-}
-
-#form {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
+  font-family: Pacifico , sans-serif;
+  font-size: 40px;
+  height: 50%;
+  line-height: 70px;
+  text-align: center;
+
+}
+
+.tittle {
+  margin: 0 auto;
+}
+
+.trybe {
+  font-size: 50px;
+  font-weight: 600;
+  padding-top: 20px;
+}
+
+.form {
+  display: flex;
+  flex-flow: column wrap;
 }
 
 .label-login {
@@ -64,39 +77,29 @@ body {
   width: 350px;
 }
 
-#button-container {
+.button-container {
   align-items: center;
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
+  margin: auto;
 }
 
-#button-login,
-#button-config {
+.button-login, .button-config {
+  background-color: white;
   border-radius: 50px;
-  color:#307a88;
+  color: #307a88;
   font-size: 20px;
   height: 60px;
   margin-bottom: 5px;
   width: 300px;
 }
 
-#button-login:hover,
-#button-config:hover {
-  background-color:#2f4858;
-  color:white;
+.button-login:hover, .button-config:hover {
+  background-color: #2f4858;
+  color: white;
 }
 
-#button-login:active,
-#button-config:active {
-  background-color:#307a88;
-  color:white;
-}
-
-#button-login {
-  background-color:white;
-}
-
-#button-config {
-	background-color: white;
+.button-login:active, .button-config:active {
+  background-color: #307a88;
+  color: white;
 }
