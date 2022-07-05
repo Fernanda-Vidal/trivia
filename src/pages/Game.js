@@ -8,7 +8,7 @@ import '../css/Game.css';
 
 class Game extends React.Component {
   state = {
-    countdown: 3500,
+    countdown: 35,
     novoArray1: [],
     correctAnswer: '',
     index: 0,

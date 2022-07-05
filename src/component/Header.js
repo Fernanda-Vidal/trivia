@@ -35,7 +35,8 @@ class Header extends React.Component {
           <br />
           <div className="info-container-text">
             <span data-testid="header-score" className="header-info">
-              { ` Pontuação: ${score}` }
+              Pontuação:
+              { score }
             </span>
           </div>
         </div>
