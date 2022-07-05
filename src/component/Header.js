@@ -23,7 +23,7 @@ class Header extends React.Component {
               data-testid="header-player-name"
               className="header-info"
             >
-              { userName }
+              {userName}
 
             </span>
           </div>
@@ -37,25 +37,11 @@ class Header extends React.Component {
           <div className="info-container-text">
             <span className="header-info">Pontuação: </span>
             <span data-testid="header-score" className="header-info">
-              { score }
+              {score}
             </span>
           </div>
         </div>
       </header>
-
-      <div>
-        <span data-testid="header-player-name">{ userName }</span>
-        <img
-          data-testid="header-profile-picture"
-          src={ this.getImgGravatar() }
-          alt="avatar do usuário"
-        />
-        <br />
-        <span>Placar: </span>
-        <span data-testid="header-score">
-          { score }
-        </span>
-      </div>
 
     );
   }

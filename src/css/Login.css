@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap') ;
 
 body {
+  background-attachment: fixed;
   background-image: url('../images/background.jpg');
-  background-size: cover;
+  background-size: 100%;
 }
 
 .login-container {
@@ -11,11 +12,11 @@ body {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: 40vh;
   justify-content: space-around;
-  margin: 200px auto;
-  padding: 40px;
-  width: 400px;
+  margin: 20vh auto;
+  padding: 40px 15px;
+  width: 20vw;
 }
 
 .tittle-container {
@@ -28,10 +29,11 @@ body {
   display: flex;
   flex-flow: column wrap;
   font-family: Pacifico , sans-serif;
-  font-size: 40px;
-  height: 50%;
-  line-height: 70px;
+  font-size: 1.7rem;
+  line-height: 2.5rem;
+  margin: auto;
   text-align: center;
+  width: 15vw;
 
 }
 
@@ -57,24 +59,29 @@ body {
   border-radius: 50px;
   color: #c3e0e5;
   display: flex;
-  font-size: 25px;
+  font-size: 1rem;
   font-weight: 900;
   justify-content: space-between;
-  margin: 20px 0;
+  margin: 10px 0;
   opacity: 0.8;
   padding-left: 10px;
 }
 
+.label-login:hover {
+  font-size: 0;
+  padding: 0;
+}
+
 .input-login {
   border-radius: 50px;
-  font-size: 20px;
-  height: 60px;
-  width: 300px;
+  font-size: 1rem;
+  height: 6vh;
+  width: 80%;
 }
 
 .input-login:hover {
-  height: 85px;
-  width: 350px;
+  height: 8vh;
+  width: 91%;
 }
 
 .button-container {
@@ -89,9 +96,9 @@ body {
   border-radius: 50px;
   color: #307a88;
   font-size: 20px;
-  height: 60px;
+  height: 8vh;
   margin-bottom: 5px;
-  width: 300px;
+  width: 90%;
 }
 
 .button-login:hover, .button-config:hover {

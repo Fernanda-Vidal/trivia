@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import md5 from 'crypto-js/md5';
+import '../css/Ranking.css';
 
 class Ranking extends React.Component {
   // state = {
@@ -27,8 +28,8 @@ class Ranking extends React.Component {
     // const { ranking } = this.state;
     const { history } = this.props;
     return (
-      <div>
-        <h1 data-testid="ranking-title">Ranking:</h1>
+      <div className="container-ranking">
+        <h1 data-testid="ranking-title" className="ranking-tittle">Ranking:</h1>
         <ol>
           {JSON.parse(localStorage.getItem('player'))
             .sort((a, b) => b.score - a.score)
