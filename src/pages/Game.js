@@ -8,7 +8,7 @@ import '../css/Game.css';
 
 class Game extends React.Component {
   state = {
-    countdown: 35,
+    countdown: 3500,
     novoArray1: [],
     correctAnswer: '',
     index: 0,
@@ -139,23 +139,35 @@ class Game extends React.Component {
       correctAnswer, index, isAnswered, isDisable, countdown } = this.state;
     const cardQuestion = novoArray1.map((question) => (
       <div key={ question.category } className="container">
-        <p
-          key={ question.category }
-          id="category"
-          data-testid="question-category"
+        <div className="container-top">
+          <div className="category-container">
+            <p className="label-category">Categoria: </p>
+            <p
+              key={ question.category }
+              className="category"
+              data-testid="question-category"
+            >
+              {question.category}
+            </p>
+          </div>
+          <div className="container-text">
+            <p
+              key={ question.question }
+              data-testid="question-text"
+            >
+              {/* Pergunta: */}
+              {question.question}
+            </p>
+          </div>
+          <div className="category-container countdown">
+            <p className="contdown-text">{countdown}</p>
+          </div>
+
+        </div>
+        <div
+          data-testid="answer-options"
+          className="questions-container"
         >
-          Categoria:
-          {question.category}
-        </p>
-        <p
-          key={ question.question }
-          className="container-text"
-          data-testid="question-text"
-        >
-          {/* Pergunta: */}
-          {question.question}
-        </p>
-        <div data-testid="answer-options">
           {question.answers.map((answer, i) => (
             (correctAnswer.includes(answer))
               ? (
@@ -193,7 +205,6 @@ class Game extends React.Component {
     return (
       <div>
         <Header />
-        {countdown}
         {cardQuestion[index]}
         {(isAnswered)
             && (
@@ -201,6 +212,7 @@ class Game extends React.Component {
                 type="button"
                 data-testid="btn-next"
                 onClick={ this.handleClickNext }
+                className="button-next"
               >
                 Next
               </button>
