@@ -6,6 +6,13 @@ import { addAssertations, addQuestions, addScore } from '../redux/actions';
 import { getQuestions } from '../services/GetApi';
 import '../css/Game.css';
 
+/* Feito através da indicação do colega Jessy Damasseno no slack */
+function decodeEntity(inputStr) {
+  const textarea = document.createElement('textarea');
+  textarea.innerHTML = inputStr;
+  return textarea.value;
+}
+
 class Game extends React.Component {
   state = {
     countdown: 35,
@@ -156,8 +163,7 @@ class Game extends React.Component {
               key={ question.question }
               data-testid="question-text"
             >
-              {/* Pergunta: */}
-              {question.question}
+              {decodeEntity(question.question)}
             </p>
           </div>
           <div className="category-container countdown">
@@ -181,7 +187,7 @@ class Game extends React.Component {
                   onClick={ this.handleClickAnswer }
                   disabled={ isDisable }
                 >
-                  {answer}
+                  {decodeEntity(answer)}
                 </button>
               )
               : (
@@ -194,7 +200,7 @@ class Game extends React.Component {
                   onClick={ this.handleClickAnswer }
                   disabled={ isDisable }
                 >
-                  {answer}
+                  {decodeEntity(answer)}
                 </button>
               )
               //  Pesquisa: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
