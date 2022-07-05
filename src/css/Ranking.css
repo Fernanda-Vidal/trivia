@@ -1,5 +1,6 @@
 .container-ranking {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   text-align: center;
 }
