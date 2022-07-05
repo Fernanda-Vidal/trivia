@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap') ;
 
 body {
+  background-attachment: fixed;
   background-image: url('../images/background.jpg');
   background-size: 100%;
-  background-attachment: fixed;
 }
 
 .login-container {
@@ -67,7 +67,7 @@ body {
   padding-left: 10px;
 }
 
-.label-login:hover{
+.label-login:hover {
   font-size: 0;
   padding: 0;
 }
