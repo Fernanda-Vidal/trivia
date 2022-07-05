@@ -15,6 +15,7 @@ class Header extends React.Component {
   render() {
     const { userName, score } = this.props;
     return (
+
       <header className="header-container">
         <div className="info-container">
           <div className="info-container-tex">
@@ -41,6 +42,21 @@ class Header extends React.Component {
           </div>
         </div>
       </header>
+
+      <div>
+        <span data-testid="header-player-name">{ userName }</span>
+        <img
+          data-testid="header-profile-picture"
+          src={ this.getImgGravatar() }
+          alt="avatar do usuário"
+        />
+        <br />
+        <span>Placar: </span>
+        <span data-testid="header-score">
+          { score }
+        </span>
+      </div>
+
     );
   }
 }

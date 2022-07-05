@@ -28,10 +28,10 @@ class Game extends React.Component {
       }
     });
     // const mil = 1000;
-    this.shuffleAnswers();
-    this.countdown();
     // Solução na pesquisa: https://pt.wikibooks.org/wiki/JavaScript/Intervalos_de_tempo#:~:text=O%20setInterval&text=A%20sua%20sintaxe%20%C3%A9%3A,segundo%20equivale%20a%201000%20mil%C3%A9simos.
     // setInterval(this.countdown, mil);
+    this.shuffleAnswers();
+    this.countdown();
   }
 
   shuffleAnswers = () => {
@@ -82,19 +82,20 @@ class Game extends React.Component {
     });
     console.log(novoArray1[index].difficulty);
     console.log(target.id);
+    // if (novoArray1[0])
     if (target.id === 'correct') {
       if (novoArray1[index].difficulty === 'hard') {
         const score = dez + (countdown * tres);
         dispatch(addScore(score));
-        dispatch(addAssertations(1));
+        dispatch(addAssertations());
       } else if (novoArray1[index].difficulty === 'medium') {
         const score = dez + (countdown * 2);
         dispatch(addScore(score));
-        dispatch(addAssertations(1));
+        dispatch(addAssertations());
       } else {
         const score = dez + (countdown);
         dispatch(addScore(score));
-        dispatch(addAssertations(1));
+        dispatch(addAssertations());
       }
     }
   }
