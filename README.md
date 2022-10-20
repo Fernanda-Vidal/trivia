@@ -1,5 +1,7 @@
 # Projeto de Trivia!
 
+Segundo projeto desenvolvido em grupo, onde desenvolvemos uma aplicação que é um jogo de perguntas e respostas utilizando React.js e Redux, para gerenciamento do estado global da aplicação.
+
 
 # Requisitos
 
