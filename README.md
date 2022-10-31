@@ -1,32 +1,18 @@
 # Projeto de Trivia!
 
-Segundo projeto desenvolvido em grupo, onde desenvolvemos uma aplicação que é um jogo de perguntas e respostas utilizando React.js e Redux, para gerenciamento do estado global da aplicação.
+Segundo projeto desenvolvido em grupo desenvolvido no curso de desenvolvimento web da Trybe, no módulo de Front-end, onde desenvolvemos uma aplicação que é um jogo de perguntas e respostas utilizando React.js e Redux, para gerenciamento do estado global da aplicação.
 
+Foi desenvolvido um jogo de perguntas e respostas baseado no Jogo Trivia, onde é possível:
 
-# Requisitos
+* Logar no jogo e, se o email tiver cadastro no site Gravatar, ter sua foto associada ao perfil da pessoa usuária.
+* Acessar a página referente ao jogo, onde se deverá escolher uma das respostas disponíveis para cada uma das perguntas apresentadas. A resposta deve ser marcada antes do contador de tempo chegar a zero, caso contrário a resposta deverá ser considerada errada.
+* Ser redirecionada, após 5 perguntas respondidas, para a tela de score, onde o texto mostrado depende do número de acertos.
+* Visualizar a página de ranking, se quiser, ao final de cada jogo.
+* Configurar algumas opções para o jogo em uma tela de configuração acessível a partir do cabeçalho do app.
 
-1. Crie a tela de login, onde a pessoa que joga deve preencher as informações para iniciar um jogo
-2. Crie o botão de iniciar o jogo
-3. Crie um botão que leva a pessoa para tela de configuração
-4. Desenvolva testes para atingir 90% de cobertura da tela de Login
-5. Crie um _header_ que deve conter as informações da pessoa jogadora
-6. Crie a página de jogo que deve conter as informações relacionadas à pergunta
-7. Desenvolva o estilo que, ao clicar em uma resposta, a correta deve ficar verde e as incorretas, vermelhas
-8. Desenvolva um timer onde a pessoa que joga tem 30 segundos para responder
-9. Crie o placar com as seguintes características:
-10. Crie um botão de `Next` que apareça após a resposta ser dada
-11. Desenvolva o jogo de forma que a pessoa que joga deve responder 5 perguntas no total
-12. Desenvolva o header de _feedback_ que deve conter as informações da pessoa jogadora
-13. Crie a mensagem de _feedback_ para ser exibida a pessoa usuária
-14. Exiba as informações relacionadas aos resultados obtidos para a pessoa usuária
-15. Crie a opção para a pessoa jogadora poder jogar novamente
-16. Crie a opção para a pessoa jogadora poder visualizar a tela de _ranking_
-17. Desenvolva testes para atingir 90% de cobertura da tela de Feedbacks
-18. Crie um botão para ir ao início
-19. Crie o conteúdo da tela de _ranking_
-20. Desenvolva testes para atingir 90% de cobertura da tela de Ranking
-21. Desenvolva testes para atingir 90% de cobertura da tela de Jogo
-22. Desenvolva testes para atingir 95% de cobertura total
-23. Ao mudar o valor do dropdown categoria, apenas perguntas da categoria selecionada devem aparecer para a pessoa que está jogando. Essa configuração será identificada pela chave category no retorno da API;
-24. Ao mudar o valor do dropdown dificuldade, apenas perguntas da dificuldade selecionada devem aparecer para a pessoa que está jogando. Essa configuração será identificada pela chave difficulty no retorno da API;
-25. Ao mudar o valor do dropdown tipo, apenas perguntas do tipo selecionado devem aparecer para a pessoa que está jogando. Essa configuração será identificada pela chave type no retorno da API.
+## Prévia
+
+![image](https://user-images.githubusercontent.com/99993299/199025536-2d04c793-6a2b-4e39-813f-45ca2b031bec.png)
+![image](https://user-images.githubusercontent.com/99993299/199025680-542344e6-7275-4244-ab81-ffd22972b9b7.png)
+![image](https://user-images.githubusercontent.com/99993299/199025869-2340fbcf-356d-4fde-b494-652f5cf84be1.png)
+![image](https://user-images.githubusercontent.com/99993299/199026067-9700e1fc-c180-4f02-8063-19fdd1962d00.png)
