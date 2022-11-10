@@ -1,4 +1,4 @@
-# Store Manager
+# Trivia
 
 Projeto em grupo do módulo de Front-end do curso de Desenvolvimento Web da [Trybe](https://www.betrybe.com/), desenvolvido por  [Fernanda Vidal](https://github.com/Fernanda-Vidal), [Jeferson Gomes](https://github.com/jefersongjr), [Caio Pereira](https://github.com/caiopa), [Maraise Gomes](https://github.com/Maraise-hub), [Roberto Luna](https://github.com/RobertoDLuna)
 
@@ -8,6 +8,8 @@ Projeto em grupo do módulo de Front-end do curso de Desenvolvimento Web da [Try
 O Trivia é um jogo de perguntas e respostas que consome uma API pública, utilizando React e Redux.
 
 Por se tratar de um projeto em grupo, também utilizamos de metodologias ágeis como o Scrum e Kanban.
+
+Link do nosso projeto: https://trivia-game-xi.vercel.app/
 </div>
 
 ## Desenvolvimento 
